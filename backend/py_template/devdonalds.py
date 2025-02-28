@@ -44,15 +44,16 @@ def parse():
 # Takes in a recipeName and returns it in a form that 
 def parse_handwriting(recipeName: str) -> Union[str | None]:
 	name : str = ""
+
 	for i in recipeName:
-		if i == '-' or i == '_':
+		if i == '-' or i == '_' or i == " ":
 			if name[-1] != ' ':
 				name += ' '
 		elif i.isalpha() == True:
 			name += i
 	
 	name = name.title()
-	if len(name > 0):
+	if len(name) > 0:
 		return name
 	else:
 		return None
